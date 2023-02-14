@@ -44,15 +44,19 @@ public class DriverSetup {
     }
 
     private static AppiumDriver androidDriver() {
+
         // setting capabilities for android driver
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, dotEnv.get("PLATFORM"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, dotEnv.get("PLATFORM_VERSION"));
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, dotEnv.get("ANDROID_DRIVER"));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, dotEnv.get("DEVICE_NAME"));
-//     ToDo investigate more about this
-//      desiredCapabilities.setCapability("appPackage", "com.android.contacts");
-//      desiredCapabilities.setCapability("appActivity", ".activities.PeopleActivity");
+        capabilities.setCapability("appPackage", dotEnv.get("APP_PACKAGE"));
+        capabilities.setCapability("appActivity", dotEnv.get("APP_ACTIVITY"));
+
+//        ToDo: define an especific app
+//        desiredCapabilities.setCapability(MobileCapabilityType.APP, {PATH/TO/TESTAPP.APK});
+
         return new AndroidDriver(service.getUrl(), capabilities);
     }
 
