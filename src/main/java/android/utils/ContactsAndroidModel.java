@@ -48,9 +48,9 @@ public class ContactsAndroidModel {
     public ArrayList<String> getFullContactInfo() {
         ArrayList<String> fullContactInfo = new ArrayList<>();
         fullContactInfo.add(getFullName());
-        fullContactInfo.add(getCompany());
         fullContactInfo.add(getPhone());
         fullContactInfo.add(getEmail());
+        fullContactInfo.add(getCompany());
         return fullContactInfo;
     }
 }

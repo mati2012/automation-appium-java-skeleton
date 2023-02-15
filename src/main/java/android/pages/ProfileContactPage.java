@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class ProfileContactPage extends BasePage {
     private final By contactName = By.id("com.google.android.contacts:id/large_title");
-    private final By companyName = By.id("com.google.android.contacts:id/organization_name");
     private final By contactInfo = By.id("com.google.android.contacts:id/header");
 
 
@@ -15,7 +14,6 @@ public class ProfileContactPage extends BasePage {
         ArrayList<String> storedContactInfo = new ArrayList<>();
 
         storedContactInfo.add(getDriver().findElement(contactName).getText());
-        storedContactInfo.add(getDriver().findElement(companyName).getText());
 
         ArrayList<WebElement> contactMethods = (ArrayList<WebElement>) getDriver().findElements(contactInfo);
 
