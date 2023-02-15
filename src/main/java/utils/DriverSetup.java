@@ -15,6 +15,7 @@ public class DriverSetup {
     private static AppiumDriverLocalService service;
     private static AppiumDriver driver;
 
+
     @BeforeClass
     public static void startServer() {
         //starts appium service
@@ -47,10 +48,11 @@ public class DriverSetup {
 
         // setting capabilities for android driver
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, dotEnv.get("PLATFORM"));
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, dotEnv.get("PLATFORM_NAME"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, dotEnv.get("PLATFORM_VERSION"));
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, dotEnv.get("ANDROID_DRIVER"));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, dotEnv.get("DEVICE_NAME"));
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         capabilities.setCapability("appPackage", dotEnv.get("APP_PACKAGE"));
         capabilities.setCapability("appActivity", dotEnv.get("APP_ACTIVITY"));
 
